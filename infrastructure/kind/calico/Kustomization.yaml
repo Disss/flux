@@ -1,5 +1,5 @@
 ---
-namespace: myns
+namespace: flux-system
 patches:
 - patch: |-
     - op: add
