@@ -5,13 +5,13 @@ resources:
 - calico-tigera.yaml
 - calico.yaml
 patches:
-- patch: |-
+- target:
+    kind: DaemonSet
+    namespace: calico-system
+    name: calico-node
+  patch: |-
     - op: add
       path: "/spec/template/spec/containers/0/env/-"
       value:
         name: FELIX_IGNORELOOSERPF
         value: "true"
-  target:
-    kind: DaemonSet
-    namespace: calico-system
-    name: calico-node
