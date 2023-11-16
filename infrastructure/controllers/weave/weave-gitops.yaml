@@ -1,0 +1,50 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: weave-gitops
+  namespace: flux-system
+spec:
+  interval: 10m0s
+  chart:
+    spec:
+      chart: weave-gitops
+      version: "*"
+      sourceRef:
+        kind: HelmRepository
+        name: weave-gitops
+      interval: 5m0s
+  # https://github.com/weaveworks/weave-gitops/blob/main/charts/gitops-server/values.yaml
+  values:
+
+    # Should the 'oidc-auth' secret be created. For a detailed
+    # explanation of these attributes please see our documentation:
+    # https://docs.gitops.weave.works/docs/configuration/securing-access-to-the-dashboard/#login-via-an-oidc-provider
+
+    ingress:
+      enabled: false
+
+    resources:
+      requests:
+        cpu: 50m
+        memory: 64Mi
+      limits:
+        cpu: 50m
+        memory: 128Mi
+    # securityContext:
+    #   capabilities:
+    #     drop:
+    #       - ALL
+    #   readOnlyRootFilesystem: true
+    #   runAsNonRoot: true
+    #   runAsUser: 1000
+    adminUser:
+      create: true
+      username: admin
+      # Change password by generating a new hash with:
+      #   htpasswd -bnBC 8 "" your_password | grep -oP '\$2[ayb]\$.{56}'
+      #   to obtain htpasswd use "yum install httpd-tools"
+      #   or
+      #   https://docs.gitops.weave.works/docs/configuration/securing-access-to-the-dashboard/#login-via-a-cluster-user-account
+      # bcrypt hash for admin's password:
+      passwordHash: "$2a$12$28Xkb5keE8JkbsAEkmim7.YijEwxIvKPcpfYTW8dsmnHRQi0/5e86"
