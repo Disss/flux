@@ -5,5 +5,5 @@ metadata:
   name: shared-resources
   namespace: flux-system
 resources:
-  - ../../infrastructure/git-repos
-  - ../../infrastructure/controllers/weave
+  - ../../../infrastructure/git-repos
+  - ../../../infrastructure/controllers/weave
