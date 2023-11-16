@@ -1,5 +1,5 @@
 ---
-apiVersion: kustomize.config.k8s.io/v1beta1
+apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: weave
@@ -8,5 +8,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-    path: ./infrastructure/controllers/weave
-    prune: false
+  path: ./infrastructure/controllers/weave
+  prune: false
+  interval: 10m0s
