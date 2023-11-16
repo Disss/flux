@@ -12,7 +12,7 @@ data:
     rbac:
       create: true
     externalAccess:
-      enabled: true
+      enabled: false
       autoDiscovery:
         enabled: false
     zookeeper:  
