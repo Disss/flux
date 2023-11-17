@@ -26,6 +26,10 @@ data:
     replicaCount: 3
     maxMessageBytes: "3670016"
     deleteTopicEnable: true
+    heapOpts: -Xmx128m -Xms128m
+    resources:
+      limits:
+        memory: 256Mi
     auth:
       protocol: PlainText
       saslMechanism: ""
