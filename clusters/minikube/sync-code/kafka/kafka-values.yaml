@@ -23,13 +23,13 @@ data:
       initialDelaySeconds: 15
     startupProbe:
       initialDelaySeconds: 60
-    replicaCount: 3
+    replicaCount: 1
     maxMessageBytes: "3670016"
     deleteTopicEnable: true
-    heapOpts: -Xmx128m -Xms128m
+    heapOpts: -Xmx512m -Xms512m
     resources:
       limits:
-        memory: 256Mi
+        memory: 1Gi
     auth:
       protocol: PlainText
       saslMechanism: ""
