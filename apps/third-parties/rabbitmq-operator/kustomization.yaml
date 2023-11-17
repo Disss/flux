@@ -5,5 +5,4 @@ resources:
   - crd.yaml
   - Namespace.yaml
   - NetworkPolicy.yaml
-  - PodMonitor.yaml
   - HelmRelease.yaml
