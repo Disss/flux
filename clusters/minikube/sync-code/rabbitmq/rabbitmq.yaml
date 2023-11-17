@@ -4,7 +4,7 @@ apiVersion: rabbitmq.com/v1beta1
 kind: RabbitmqCluster
 metadata:
   name: rabbitmq
-  namespace: d005
+  namespace: rabbitmq
 spec:
   image: 'docker.io/bitnami/rabbitmq:3.10.7-debian-11-r3'
   # service:
