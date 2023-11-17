@@ -1,0 +1,27 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: rabbitmq-operator
+  namespace: flux-system
+spec:
+  interval: 5m0s
+  dependsOn:
+    - name: prometheus
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./apps/third-parties/rabbitmq-operator
+  prune: false
+  wait: true
+  # timeout before error and alert
+  timeout: 15m0s
+  patches:
+    - patch: |
+
+        - op: replace
+          path: /spec/chart/spec/version
+          value: "3.6.4"
+      target:
+        kind: HelmRelease
+        name: rabbitmq-operator

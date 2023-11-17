@@ -1,0 +1,17 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-webhook-access-from-apiserver
+  namespace: rabbitmq-system
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: rabbitmq-cluster-operator
+  ingress:
+    - from:
+        - ipBlock:
+            cidr: 127.0.0.1/28  # Control plane IP block. This has to be overwritten in Kustomization for your cluster!
+      ports:
+        - port: 9443
+        - port: 443
