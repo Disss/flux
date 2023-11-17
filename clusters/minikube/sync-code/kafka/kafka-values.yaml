@@ -17,6 +17,12 @@ data:
         enabled: false
     zookeeper:  
       replicaCount: 1
+    livenessProbe:
+      initialDelaySeconds: 30
+    readinessProbe:
+      initialDelaySeconds: 15
+    startupProbe:
+      initialDelaySeconds: 60
     replicaCount: 3
     maxMessageBytes: "3670016"
     deleteTopicEnable: true
