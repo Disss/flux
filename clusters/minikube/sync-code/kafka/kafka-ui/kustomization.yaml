@@ -13,7 +13,6 @@ spec:
   prune: true
   wait: true
   timeout: 5m0s
-  targetNamespace: kafka
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -31,4 +30,3 @@ spec:
   prune: true
   wait: true
   timeout: 5m0s
-  targetNamespace: kafka
