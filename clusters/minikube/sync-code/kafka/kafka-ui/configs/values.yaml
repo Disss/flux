@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: kafka-ui-values
-  namespace: flux-system
+  namespace: kafka
 data:
   values.yaml: |
 
