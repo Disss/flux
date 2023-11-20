@@ -11,3 +11,4 @@ spec:
   path: ./apps/third-parties/kafka-ui
   prune: false
   interval: 10m0s
+  targetNamespace: kafka
