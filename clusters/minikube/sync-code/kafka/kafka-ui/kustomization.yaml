@@ -21,6 +21,8 @@ metadata:
   name: kafka-ui
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: kafka-ui-configs
   interval: 10m0s
   sourceRef:
     kind: GitRepository
