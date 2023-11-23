@@ -11,7 +11,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./clusters/euwe1c1-gke000/sync-code/kyverno/test
+  path: ./clusters/minikube/sync-code/kyverno/test
   prune: true
   wait: true
   timeout: 20m0s
